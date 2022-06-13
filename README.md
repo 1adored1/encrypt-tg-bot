@@ -1,2 +1,2 @@
 # CryptoBot
-Encrypt / Decrypt bot for Telegram 
+Encrypt / Decrypt bot for Telegram
