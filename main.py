@@ -60,8 +60,7 @@ def process_choose_step(message):
                 msg = bot.send_message(message.chat.id, 'Введите зашифрованное сообщение', reply_markup=markup)
                 bot.register_next_step_handler(msg, process_mess_step)
         else:
-            bot.send_message(message.chat.id, 'Неверный ввод')
-            msg = bot.send_message(message.chat.id, 'Выберите нужное преобразование')
+            msg = bot.send_message(message.chat.id, 'Нет такого варианта ответа')
             bot.register_next_step_handler(msg, process_choose_step)
 
 
@@ -75,7 +74,7 @@ def process_mess_step(message):
         bot.register_next_step_handler(msg, process_choose_step)
     else:
         request_dict['message'] = message.text
-        msg = bot.send_message(message.chat.id, 'Введите ключ')
+        msg = bot.send_message(message.chat.id, 'Введите ключ (число)')
         bot.register_next_step_handler(msg, process_key_step)
 
 
@@ -107,8 +106,7 @@ def process_key_step(message):
         else:
             bot.send_message(message.chat.id, 'Ошибка, попробуйте снова /start')
     else:
-        bot.send_message(message.chat.id, 'Ключ должен быть числом')
-        msg = bot.send_message(message.chat.id, 'Введите ключ')
+        msg = bot.send_message(message.chat.id, 'Ключ должен быть числом')
         bot.register_next_step_handler(msg, process_key_step)
 
 
